@@ -2,6 +2,12 @@ import os
 import subprocess
 import openai
 from termcolor import colored
+import argparse
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Heal Python code with the help of OpenAI's GPT-3.5 Turbo model.")
+    parser.add_argument("file", help="The Python file to heal.")
+    return parser.parse_args()
 
 def run_script(script_path):
     result = subprocess.run(['python', script_path], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -28,7 +34,9 @@ def ask_openai_gpt35_turbo(question, code):
     return completion.choices[0].message['content'].strip()
 
 def main():
-    script_path = 'test.py'
+    args = parse_args()
+    script_path = args.file
+    #script_path = 'test.py'
     iteration = 1
 
     while True:
