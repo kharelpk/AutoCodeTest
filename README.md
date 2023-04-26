@@ -34,7 +34,7 @@ Replace `your_api_key` with your actual API key.
 2. Run the Code Healers script:
 
 ```bash
-python code_healers.py
+python code_healer.py
 ```
 
 3. The script will run your code, identify errors, and consult the GPT-3.5 Turbo model for solutions. The updated code will be saved as `test_update1.py`, `test_update2.py`, and so on.
